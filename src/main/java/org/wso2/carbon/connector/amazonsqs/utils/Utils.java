@@ -36,7 +36,7 @@ import org.json.JSONObject;
 import org.wso2.carbon.connector.amazonsqs.connection.SqsConnection;
 import org.wso2.carbon.connector.amazonsqs.constants.Constants;
 import org.wso2.carbon.connector.amazonsqs.exception.SqsInvalidConfigurationException;
-import org.wso2.carbon.connector.core.util.ConnectorUtils;
+import org.wso2.integration.connector.core.util.ConnectorUtils;
 import software.amazon.awssdk.awscore.AwsRequestOverrideConfiguration;
 import software.amazon.awssdk.awscore.exception.AwsServiceException;
 import software.amazon.awssdk.core.SdkBytes;

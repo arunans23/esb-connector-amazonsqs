@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Output Schema for ReceiveMessage Operation",
+  "description": "Output schema for the receiveMessage operation in the connector.",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "description": "The main response payload from the receiveMessage operation.",
+      "properties": {
+        "Messages": {
+          "type": "array",
+          "description": "A list of messages received from the queue. This array can be empty if no messages are available.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "MessageId": {
+                "type": "string",
+                "description": "A unique identifier for the message."
+              },
+              "ReceiptHandle": {
+                "type": "string",
+                "description": "An identifier associated with the act of receiving the message."
+              },
+              "MD5OfBody": {
+                "type": "string",
+                "description": "An MD5 digest of the message body string."
+              },
+              "Body": {
+                "type": "string",
+                "description": "The message's contents (not URL-encoded)."
+              },
+              "Attributes": {
+                "type": "object",
+                "description": "A map of system attributes (e.g., SenderId, SentTimestamp) to their respective values.",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "MD5OfMessageAttributes": {
+                "type": "string",
+                "description": "An MD5 digest of the message attributes."
+              },
+              "MessageAttributes": {
+                "type": "object",
+                "description": "A map of user-defined message attributes to their respective values.",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "StringValue": { "type": "string" },
+                    "BinaryValue": { "type": "string", "contentEncoding": "base64" },
+                    "StringListValues": { "type": "array", "items": { "type": "string" } },
+                    "BinaryListValues": { "type": "array", "items": { "type": "string", "contentEncoding": "base64" } },
+                    "DataType": { "type": "string", "enum": ["String", "Number", "Binary", "String.custom", "Number.custom"] }
+                  },
+                  "required": ["DataType"]
+                }
+              }
+            },
+            "required": [
+              "MessageId",
+              "ReceiptHandle",
+              "MD5OfBody",
+              "Body"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+      // "Messages" array itself is not always required in the SQS response if no messages are found.
+      // However, for a consistent schema, we can define it as always present, potentially empty.
+      // Let's make it required as per SQS documentation often showing <ReceiveMessageResult/> even if empty.
+      // "required": ["Messages"] // Commented out as SQS might return an empty ReceiveMessageResult if no messages.
+                               // The prompt implies payload is required, so the Messages wrapper should be there.
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Metadata about the receiveMessage operation.",
+      "properties": {
+        "operationSuccessful": {
+          "type": "boolean",
+          "description": "Indicates whether the SQS API call was successful."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The AWS request ID for the SQS operation."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload",
+    "attributes"
+  ],
+  "additionalProperties": false
+}

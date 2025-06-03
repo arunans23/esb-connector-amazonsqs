@@ -19,30 +19,37 @@
 <component name="amazonSQS-message" type="synapse/template">
     <subComponents>
         <component name="sendMessage">
+            <displayName>Send Message</displayName>
             <file>sendMessage.xml</file>
             <description>Delivers a message to the specified queue</description>
         </component>
         <component name="sendMessageBatch">
+            <displayName>Send Message Batch</displayName>
             <file>sendMessageBatch.xml</file>
             <description>Delivers batch messages to the specified queue</description>
         </component>
         <component name="receiveMessage">
+            <displayName>Receive Message</displayName>
             <file>receiveMessage.xml</file>
             <description>Retrieves one or more messages from the specified queue</description>
         </component>
         <component name="changeMessageVisibility">
+            <displayName>Change Message Visibility</displayName>
             <file>changeMessageVisibility.xml</file>
             <description>Changes the visibility timeout of a specified message in a queue</description>
         </component>
         <component name="changeMessageVisibilityBatch">
+            <displayName>Change Message Visibility Batch</displayName>
             <file>changeMessageVisibilityBatch.xml</file>
             <description>Changes the visibility timeout of multiple messages</description>
         </component>
         <component name="deleteMessage">
+            <displayName>Delete Message</displayName>
             <file>deleteMessage.xml</file>
             <description>Deletes the specified message from the specified queue</description>
         </component>
         <component name="deleteMessageBatch">
+            <displayName>Delete Message Batch</displayName>
             <file>deleteMessageBatch.xml</file>
             <description>Deletes multiple messages from the specified queue</description>
         </component>

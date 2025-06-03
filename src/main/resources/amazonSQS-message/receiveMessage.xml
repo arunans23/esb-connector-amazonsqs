@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="receiveMessage" xmlns="http://ws.apache.org/ns/synapse">
+<template name="receiveMessage" displayName="amazonSQS-message" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="queueUrl" description="The URL of the queue to which a message is sent"/>
     <parameter name="messageSystemAttributeNames"
                description="A list of attributes that need to be returned along with each message. The attribute should be separated by ','. Eg:  'SenderId, SentTimestamp'"/>
@@ -33,6 +33,8 @@
                 to complete before giving up and timing out"/>
     <parameter name="queueId" description="The unique identifier of the queue"/>
     <parameter name="queueName" description="The name of the queue"/>
+    <parameter name="responseVariable" description="The name of the variable to which the output should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.connector.amazonsqs.operations.message.ReceiveMessage"/>
     </sequence>

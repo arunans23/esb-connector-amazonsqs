@@ -18,7 +18,7 @@
 package org.wso2.carbon.connector.amazonsqs.connection;
 
 import org.apache.commons.lang.StringUtils;
-import org.wso2.carbon.connector.core.connection.Connection;
+import org.wso2.integration.connector.core.connection.Connection;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;

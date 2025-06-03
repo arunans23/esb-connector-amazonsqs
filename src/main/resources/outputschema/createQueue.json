@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Output Schema for CreateQueue Operation",
+  "description": "Output schema for the createQueue operation in the connector.",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "description": "The main response payload from the createQueue operation.",
+      "properties": {
+        "QueueUrl": {
+          "type": "string",
+          "description": "The URL of the created or existing queue."
+        }
+      },
+      "required": [
+        "QueueUrl"
+      ],
+      "additionalProperties": false
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Metadata about the createQueue operation.",
+      "properties": {
+        "operationSuccessful": {
+          "type": "boolean",
+          "description": "Indicates whether the SQS API call was successful."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The AWS request ID for the SQS operation."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload",
+    "attributes"
+  ],
+  "additionalProperties": false
+}

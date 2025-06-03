@@ -19,34 +19,42 @@
 <component name="amazonSQS-queue" type="synapse/template">
     <subComponents>
         <component name="createQueue">
+            <displayName>Create Queue</displayName>
             <file>createQueue.xml</file>
             <description>Creates a new queue, or returns the URL of an existing one</description>
         </component>
         <component name="getQueueAttributes">
+            <displayName>Get Queue Attributes</displayName>
             <file>getQueueAttributes.xml</file>
             <description>Gets attributes for the specified queue</description>
         </component>
         <component name="setQueueAttributes">
+            <displayName>Set Queue Attributes</displayName>
             <file>setQueueAttributes.xml</file>
             <description>Sets the value of one or more queue attributes</description>
         </component>
         <component name="getQueueUrl">
+            <displayName>Get Queue Url</displayName>
             <file>getQueueUrl.xml</file>
             <description>Returns the URL of an existing queue</description>
         </component>
         <component name="listQueues">
+            <displayName>List Queues</displayName>
             <file>listQueues.xml</file>
             <description>Returns a list of queues</description>
         </component>
         <component name="deleteQueue">
+            <displayName>Delete Queue</displayName>
             <file>deleteQueue.xml</file>
             <description>Deletes the queue specified by the queue URL</description>
         </component>
         <component name="purgeQueue">
+            <displayName>Purge Queue</displayName>
             <file>purgeQueue.xml</file>
             <description> Deletes the messages in a queue specified by the queue URL</description>
         </component>
         <component name="listDeadLetterSourceQueues">
+            <displayName>List Dead Letter Source Queues</displayName>
             <file>listDeadLetterSourceQueues.xml</file>
             <description>Returns a list of your queues that have the RedrivePolicy queue attribute</description>
         </component>

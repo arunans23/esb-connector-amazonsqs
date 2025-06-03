@@ -1,0 +1,121 @@
+{
+  "connectorName": "amazonsqs",
+  "operationName": "getQueueUrl",
+  "title": "Get Queue URL",
+  "help": "<h1>Get Queue URL</h1> <b>This operation retrieves the URL of the specified Amazon SQS queue.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/7.1.0/micro-integrator/references/connectors/amazonsqs-connector/amazonsqs-connector-reference/\"> More Help </a></li></ul>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "amazonsqs"
+              ],
+              "defaultType": "connection.amazonsqs",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "queueName",
+                    "displayName": "Queue Name",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The name of the queue whose URL is to be retrieved."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "accountId",
+                    "displayName": "Account ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The AWS account ID of the account that created the queue. (Optional, specify if the queue belongs to another account)."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Advanced Configuration",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "apiCallTimeout",
+                    "displayName": "API Call Timeout",
+                    "inputType": "integerOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The amount of time(In Seconds) to allow the client to complete the execution of an API call."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "apiCallAttemptTimeout",
+                    "displayName": "API Call Attempt Timeout",
+                    "inputType": "integerOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The amount of time(In Seconds) to wait for the http request to complete before giving up and timing out."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": true,
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Replace Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

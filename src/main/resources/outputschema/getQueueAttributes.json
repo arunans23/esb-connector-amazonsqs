@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Output Schema for GetQueueAttributes Operation",
+  "description": "Output schema for the getQueueAttributes operation in the connector.",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "description": "The main response payload from the getQueueAttributes operation.",
+      "properties": {
+        "Attributes": {
+          "type": "object",
+          "description": "A map of attributes requested to their respective values.",
+          "additionalProperties": {
+            "type": ["string", "integer", "boolean"],
+            "description": "The value of the queue attribute. For attributes like RedrivePolicy, this will be a JSON string."
+          }
+        }
+      },
+      "required": [
+        "Attributes"
+      ],
+      "additionalProperties": false
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Metadata about the getQueueAttributes operation.",
+      "properties": {
+        "operationSuccessful": {
+          "type": "boolean",
+          "description": "Indicates whether the SQS API call was successful."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The AWS request ID for the SQS operation."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload",
+    "attributes"
+  ],
+  "additionalProperties": false
+}

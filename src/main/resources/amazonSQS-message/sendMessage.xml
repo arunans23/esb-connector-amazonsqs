@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="sendMessage" xmlns="http://ws.apache.org/ns/synapse">
+<template name="sendMessage" displayName="amazonSQS-message" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="queueUrl" description="The URL of the queue to which a message is sent"/>
     <parameter name="delaySeconds"
                description="Integer, The number of seconds (0 to 900 - 15 minutes) to delay a specific message"/>
@@ -47,6 +47,8 @@
                 to complete before giving up and timing out"/>
     <parameter name="queueId" description="The AWS account ID without hyphens"/>
     <parameter name="queueName" description="The name of the queue"/>
+    <parameter name="responseVariable" description="The name of the variable to which the output should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.connector.amazonsqs.operations.message.SendMessage"/>
     </sequence>

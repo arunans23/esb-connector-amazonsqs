@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Output Schema for DeleteQueue Operation",
+  "description": "Output schema for the deleteQueue operation in the connector.",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "description": "The main response payload from the deleteQueue operation. This operation typically returns an empty payload upon success.",
+      "properties": {}
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Metadata about the deleteQueue operation.",
+      "properties": {
+        "operationSuccessful": {
+          "type": "boolean",
+          "description": "Indicates whether the SQS operation was successful."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The AWS request ID for the SQS operation."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload",
+    "attributes"
+  ],
+  "additionalProperties": false
+}

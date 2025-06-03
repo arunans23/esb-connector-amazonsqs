@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="sendMessageBatch" xmlns="http://ws.apache.org/ns/synapse">
+<template name="sendMessageBatch" displayName="amazonSQS-message" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="queueUrl" description="The URL of the queue to which a message is sent"/>
     <parameter name="messageRequestEntries"
                description="The list of messages to be sent. Eg: [{'delaySeconds': 0, 'id': 'id1', 'messageBody': 'hi', 'messageAttributes': {'my_attribute_name_1': {'DataType': 'String','StringValue': 'my_attribute_value_1'}}, messageSystemAttributes: {'AWSTraceHeader': {'DataType': 'String','StringValue': 'AWS X-Ray'}}}]"/>
@@ -25,6 +25,8 @@
                 to complete before giving up and timing out"/>
     <parameter name="queueId" description="The unique identifier of the queue"/>
     <parameter name="queueName" description="The name of the queue"/>
+    <parameter name="responseVariable" description="The name of the variable to which the output should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.connector.amazonsqs.operations.message.SendMessageBatch"/>
     </sequence>

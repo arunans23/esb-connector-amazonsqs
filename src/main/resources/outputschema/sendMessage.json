@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Output Schema for SendMessage Operation",
+  "description": "Output schema for the sendMessage operation in the connector.",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "description": "The main response payload from the sendMessage operation.",
+      "properties": {
+        "MD5OfMessageBody": {
+          "type": "string",
+          "description": "An MD5 digest of the message body string."
+        },
+        "MD5OfMessageAttributes": {
+          "type": "string",
+          "description": "An MD5 digest of the message attributes. Only returned if message attributes were sent."
+        },
+        "MessageId": {
+          "type": "string",
+          "description": "A unique identifier for the sent message."
+        },
+        "SequenceNumber": {
+          "type": "string",
+          "description": "The sequence number that SQS assigned to the message. Only returned for messages sent to FIFO queues."
+        }
+      },
+      "required": [
+        "MD5OfMessageBody",
+        "MessageId"
+      ],
+      "additionalProperties": false
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Metadata about the sendMessage operation.",
+      "properties": {
+        "operationSuccessful": {
+          "type": "boolean",
+          "description": "Indicates whether the SQS API call was successful."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The AWS request ID for the SQS operation."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload",
+    "attributes"
+  ],
+  "additionalProperties": false
+}

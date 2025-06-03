@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="getQueueAttributes" xmlns="http://ws.apache.org/ns/synapse">
+<template name="getQueueAttributes" displayName="amazonSQS-queue" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="queueUrl" description="The URL of the queue whose attribute information is retrieved"/>
     <parameter name="attributes" description="A list of attributes to retrieve information for. Each attribute
         must be listed in the string in a comma-separated format. Eg: ['Policy', 'DelaySeconds']"/>
@@ -26,6 +26,8 @@
                 to complete before giving up and timing out"/>
     <parameter name="queueId" description="The unique identifier of the queue"/>
     <parameter name="queueName" description="The name of the queue"/>
+    <parameter name="responseVariable" description="The name of the variable to which the output should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.connector.amazonsqs.operations.queue.GetQueueAttributes"/>
     </sequence>

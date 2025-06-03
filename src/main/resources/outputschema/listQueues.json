@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Output Schema for ListQueues Operation",
+  "description": "Output schema for the listQueues operation in the connector.",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "description": "The main response payload from the listQueues operation.",
+      "properties": {
+        "QueueUrls": {
+          "type": "array",
+          "description": "A list of queue URLs.",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "description": "A queue URL."
+          }
+        },
+        "NextToken": {
+          "type": "string",
+          "description": "A token to retrieve the next set of results. Omitted if no further results are available."
+        }
+      },
+      "required": [
+        "QueueUrls"
+      ],
+      "additionalProperties": false
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Metadata about the listQueues operation.",
+      "properties": {
+        "operationSuccessful": {
+          "type": "boolean",
+          "description": "Indicates whether the SQS API call was successful."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The AWS request ID for the SQS operation."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload",
+    "attributes"
+  ],
+  "additionalProperties": false
+}

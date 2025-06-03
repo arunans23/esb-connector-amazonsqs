@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="addPermission" xmlns="http://ws.apache.org/ns/synapse">
+<template name="addPermission" displayName="amazonSQS-permission" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="queueUrl" description="The URL of the queue to which permissions are added"/>
     <parameter name="awsAccountNumbers"
                description="The AWS account numbers of the principal who will be given permission.
@@ -32,6 +32,8 @@
                 to complete before giving up and timing out"/>
     <parameter name="queueId" description="The unique identifier of the queue"/>
     <parameter name="queueName" description="The name of the queue"/>
+    <parameter name="responseVariable" description="The name of the variable to which the output should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.connector.amazonsqs.operations.permission.AddPermission"/>
     </sequence>

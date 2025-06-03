@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Output Schema for DeleteMessageBatch Operation",
+  "description": "Output schema for the deleteMessageBatch operation in the connector.",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "description": "The main response payload from the deleteMessageBatch operation.",
+      "properties": {
+        "Successful": {
+          "type": "array",
+          "description": "A list of entries for successfully deleted messages.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string",
+                "description": "The ID of the successfully deleted message."
+              }
+            },
+            "required": ["Id"],
+            "additionalProperties": false
+          }
+        },
+        "Failed": {
+          "type": "array",
+          "description": "A list of entries for messages that failed to be deleted.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string",
+                "description": "The ID of the message that failed to delete."
+              },
+              "SenderFault": {
+                "type": "boolean",
+                "description": "Indicates whether the error was on the sender's side."
+              },
+              "Code": {
+                "type": "string",
+                "description": "The error code."
+              },
+              "Message": {
+                "type": "string",
+                "description": "A description of the error."
+              }
+            },
+            "required": ["Id", "SenderFault", "Code", "Message"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["Successful", "Failed"]
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Metadata about the deleteMessageBatch operation.",
+      "properties": {
+        "operationSuccessful": {
+          "type": "boolean",
+          "description": "Indicates whether the SQS API call was successful (does not mean all batch items succeeded)."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The AWS request ID for the SQS operation."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload",
+    "attributes"
+  ],
+  "additionalProperties": false
+}

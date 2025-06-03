@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="setQueueAttributes" xmlns="http://ws.apache.org/ns/synapse">
+<template name="setQueueAttributes" displayName="amazonSQS-queue" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="queueUrl" description="The URL of the queue whose attributes are set"/>
     <parameter name="attributeEntries" description="A map of attributes with their corresponding values.
                The value should be a string in JSON format. Eg: {'RedrivePolicy': {'deadLetterTargetArn': 'arn:aws:sqs:us-east-1:884783870511:TestQueue', 'maxReceiveCount': 10}}"/>
@@ -26,6 +26,8 @@
                 to complete before giving up and timing out"/>
     <parameter name="queueId" description="The unique identifier of the queue"/>
     <parameter name="queueName" description="The name of the queue"/>
+    <parameter name="responseVariable" description="The name of the variable to which the output should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.connector.amazonsqs.operations.queue.SetQueueAttributes"/>
     </sequence>

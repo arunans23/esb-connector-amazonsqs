@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="createQueue" xmlns="http://ws.apache.org/ns/synapse">
+<template name="createQueue" displayName="amazonSQS-queue" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="queueName"
                description="The name of the new queue"/>
     <parameter name="attributeEntries"
@@ -28,6 +28,8 @@
                 the execution of an API call"/>
     <parameter name="apiCallAttemptTimeout" description="The amount of time(In Seconds) to wait for the http request
                 to complete before giving up and timing out"/>
+    <parameter name="responseVariable" description="The name of the variable to which the output should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.connector.amazonsqs.operations.queue.CreateQueue"/>
     </sequence>
